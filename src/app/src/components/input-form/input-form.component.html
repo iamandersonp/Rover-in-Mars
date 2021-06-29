@@ -1,1 +1,56 @@
-<p>input-form works!</p>
+<form [formGroup]="inputDataForm">
+
+	<div fxLayout="column" fxLayoutAlign="space-between center" style="width:100%;">
+		<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="3.33%" style="width:100%;">
+      <mat-card class="card" ngClass.sm="card-sm" ngClass.md="card-md">
+        <mat-card-content>
+          <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="4vw" style="width:100%;">
+            <div>
+              <mat-form-field floatLabel="always" class="form-field" style="width: 50vw;">
+                <mat-label>Area width</mat-label>
+                <input matInput formControlName="areaWidth" placeholder="00000">
+                <mat-error *ngIf="hasError('areaWidth', 'required')">Required Field</mat-error>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field floatLabel="always" class="form-field" style="width: 50vw;">
+                <mat-label>Area height</mat-label>
+                <input matInput formControlName="areaHeight" placeholder="00000">
+                <mat-error *ngIf="hasError('areaHeight', 'required')">Required Field</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="4vw" style="width:100%;">
+            <div>
+              <mat-form-field floatLabel="always" class="form-field" style="width: 50vw;">
+                <mat-label>Rover X Start position</mat-label>
+                <input matInput formControlName="roverStartX" placeholder="00000">
+                <mat-error *ngIf="hasError('roverStartX', 'required')">Required Field</mat-error>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field floatLabel="always" class="form-field" style="width: 50vw;">
+                <mat-label>Rover Y Start position</mat-label>
+                <input matInput formControlName="roverStartY" placeholder="00000">
+                <mat-error *ngIf="hasError('roverStartY', 'required')">Required Field</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="4vw" style="width:100%;">
+            <div>
+              <mat-form-field floatLabel="always" class="form-field" style="width: 100vw;">
+                <mat-label>Rover Orders</mat-label>
+                <input matInput formControlName="roverOrders" placeholder="NSWE">
+                <mat-error *ngIf="hasError('roverOrders', 'required')">Required Field</mat-error>
+                <mat-error *ngIf="hasError('roverOrders', 'pattern')">Invalid Characters</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="4vw" style="width:100%;">
+            <button mat-raised-button color="primary">Send</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+		</div>
+	</div>
+</form>
