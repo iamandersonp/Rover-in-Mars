@@ -1,10 +1,20 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    loadChildren: () => import('./src/components/input-form/input-form.module').then( m => m.InputFormModule)
+  }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes,
+    {
+      preloadingStrategy: PreloadAllModules, scrollPositionRestoration: "enabled"
+    })
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
