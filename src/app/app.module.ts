@@ -16,7 +16,8 @@ import { AngularMaterialModule } from './angular-material.module';
     BrowserAnimationsModule,
     AngularMaterialModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

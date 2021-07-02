@@ -1,4 +1,4 @@
-<form [formGroup]="inputDataForm">
+<form (ngSubmit)="sendOrders()" [formGroup]="inputDataForm">
 
 	<div fxLayout="column" fxLayoutAlign="space-between center" style="width:100%;">
 		<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="3.33%" style="width:100%;">
@@ -10,6 +10,7 @@
                 <mat-label>Area width</mat-label>
                 <input matInput formControlName="areaWidth" placeholder="00000">
                 <mat-error *ngIf="hasError('areaWidth', 'required')">Required Field</mat-error>
+                <mat-error *ngIf="hasError('areaWidth', 'min')">Min value is 1</mat-error>
               </mat-form-field>
             </div>
             <div>
@@ -17,22 +18,33 @@
                 <mat-label>Area height</mat-label>
                 <input matInput formControlName="areaHeight" placeholder="00000">
                 <mat-error *ngIf="hasError('areaHeight', 'required')">Required Field</mat-error>
+                <mat-error *ngIf="hasError('areaHeight', 'min')">Min value is 1</mat-error>
               </mat-form-field>
             </div>
           </div>
           <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="4vw" style="width:100%;">
             <div>
-              <mat-form-field floatLabel="always" class="form-field" style="width: 50vw;">
+              <mat-form-field floatLabel="always" class="form-field" style="width: 33vw;">
                 <mat-label>Rover X Start position</mat-label>
                 <input matInput formControlName="roverStartX" placeholder="00000">
                 <mat-error *ngIf="hasError('roverStartX', 'required')">Required Field</mat-error>
+                <mat-error *ngIf="hasError('roverStartX', 'min')">Min value is 1</mat-error>
               </mat-form-field>
             </div>
             <div>
-              <mat-form-field floatLabel="always" class="form-field" style="width: 50vw;">
+              <mat-form-field floatLabel="always" class="form-field" style="width: 33vw;">
                 <mat-label>Rover Y Start position</mat-label>
                 <input matInput formControlName="roverStartY" placeholder="00000">
                 <mat-error *ngIf="hasError('roverStartY', 'required')">Required Field</mat-error>
+                <mat-error *ngIf="hasError('roverStartY', 'min')">Min value is 1</mat-error>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field floatLabel="always" class="form-field" style="width: 33vw;">
+                <mat-label>Rover Start orientation</mat-label>
+                <input matInput formControlName="roverStartOrientation" placeholder="NSWE">
+                <mat-error *ngIf="hasError('roverStartOrientation', 'required')">Required Field</mat-error>
+                <mat-error *ngIf="hasError('roverStartOrientation', 'pattern')">Invalid Characters</mat-error>
               </mat-form-field>
             </div>
           </div>
