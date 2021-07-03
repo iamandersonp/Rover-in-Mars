@@ -98,6 +98,54 @@ export class Rover
     return this._currentOrientation;
   }
 
+  moveNorth(): boolean
+  {
+    if (this.currentY < this.maxY)
+    {
+      this.currentY++;
+      return true
+    } else
+    {
+      return false
+    }
+  }
+
+  moveWest(): boolean
+  {
+    if (this.currentX > 0)
+    {
+      this.currentX--;
+      return true
+    } else
+    {
+      return false
+    }
+  }
+
+  moveEst(): boolean
+  {
+    if (this.currentX < this.maxY)
+    {
+      this.currentX++;
+      return true
+    } else
+    {
+      return false
+    }
+  }
+
+  moveSouth(): boolean
+  {
+    if (this.currentY > 0)
+    {
+      this.currentY++;
+      return true
+    } else
+    {
+      return false
+    }
+  }
+
   move(order: string): boolean
   {
     let result: boolean = false;
@@ -106,44 +154,16 @@ export class Rover
       switch (order.toUpperCase())
       {
         case 'N':
-          if (this.currentY < this.maxY)
-          {
-            this.currentY++;
-            result = true
-          } else
-          {
-            result = false
-          }
+          result = this.moveNorth();
           break;
         case 'W':
-          if (this.currentX > 0)
-          {
-            this.currentX--;
-            result = true
-          } else
-          {
-            result = false
-          }
+          result = this.moveWest();
           break;
         case 'E':
-          if (this.currentX < this.maxY)
-          {
-            this.currentX++;
-            result = true
-          } else
-          {
-            result = false
-          }
+          result = this.moveEst();
           break;
         case 'S':
-          if (this.currentY > 0)
-          {
-            this.currentY++;
-            result = true
-          } else
-          {
-            result = false
-          }
+          result = this.moveSouth();
           break;
       }
     } else
