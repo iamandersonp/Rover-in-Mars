@@ -59,6 +59,21 @@
             </div>
           </div>
           <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="4vw" style="width:100%;">
+            <div>
+              <ngx-recaptcha2
+                id="captcha"
+                #captchaElem
+                [siteKey]="sitekey"
+                [size]="size"
+                [hl]="lang"
+                [theme]="theme"
+                [type]="type"
+                formControlName="recaptcha"
+                >
+              </ngx-recaptcha2>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="4vw" style="width:100%;">
             <button mat-raised-button color="primary">Send</button>
           </div>
         </mat-card-content>

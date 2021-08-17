@@ -5,6 +5,7 @@ import { InputFormRoutingModule } from './input-form-routing.module';
 import { AngularMaterialModule } from '../../../angular-material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from '../../core/core.module'
+import { NgxCaptchaModule } from 'ngx-captcha';
 @NgModule({
   declarations: [
     InputFormComponent
@@ -15,7 +16,8 @@ import { CoreModule } from '../../core/core.module'
     FormsModule,
 		ReactiveFormsModule,
     InputFormRoutingModule,
-    CoreModule
+    CoreModule,
+    NgxCaptchaModule
   ]
 })
 export class InputFormModule { }

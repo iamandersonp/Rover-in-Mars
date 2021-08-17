@@ -8,12 +8,24 @@ import { Rover } from '../../core/classes/rover'
 })
 export class InputFormComponent implements OnInit {
   inputDataForm: any;
+  public captchaIsLoaded = false;
+  public captchaSuccess = false;
+  public captchaIsExpired = false;
+  public captchaResponse?: string;
+
+  public sitekey: string = "sitekey";
+  public theme: 'light' | 'dark' = 'light';
+  public size: 'compact' | 'normal' = 'normal';
+  public lang = 'en';
+  public type: 'image' | 'audio' = 'image';
+  public useGlobalDomain: boolean = false;
 
   constructor(private fb: FormBuilder, private rover: Rover) { }
 
   ngOnInit(): void
   {
     this.inputDataForm = this.fb.group({
+      recaptcha: ['', Validators.required],
       areaWidth: [
         null, [
           Validators.required,
